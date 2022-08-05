@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="ACAS1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ACAS/rs2xml.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ACAS/mysql-connector-java-5.1.23-bin.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

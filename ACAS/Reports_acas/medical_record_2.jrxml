@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="medical_record_2" language="groovy" pageWidth="572" pageHeight="752" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="c34baab5-4356-4921-808f-a9419b832b25">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="pet_id" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT CONCAT_WS (" ",checkup_history.day, checkup_history.month, checkup_history.year) AS `date`, diagnosis, syptoms, medicine_vaccine_given FROM `checkup_history`  WHERE checkup_history.pet_id = $P{pet_id}]]>
+	</queryString>
+	<field name="date" class="java.lang.String"/>
+	<field name="diagnosis" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="syptoms" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="medicine_vaccine_given" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="date">
+		<groupExpression><![CDATA[$F{date}]]></groupExpression>
+	</group>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<line>
+				<reportElement x="-1" y="-3" width="1" height="28" uuid="75accf72-4a05-462c-8bab-1d58e2bc7bd1"/>
+			</line>
+			<line>
+				<reportElement x="65" y="-3" width="1" height="28" uuid="afd7247a-3d41-4b73-bbbe-23f25bf5445f"/>
+			</line>
+			<line>
+				<reportElement x="508" y="-3" width="1" height="28" uuid="edcdcfe5-616f-4a7f-a546-7bbc143e3394"/>
+			</line>
+			<line>
+				<reportElement x="188" y="-3" width="1" height="28" uuid="15c323e6-db00-48ed-8314-dad691354aaf"/>
+			</line>
+			<line>
+				<reportElement x="-1" y="25" width="510" height="1" uuid="41109233-69c9-4d83-a932-c968c9082e8d"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="-1" width="65" height="26" uuid="102a8c95-4d43-4b91-be33-69600bad1b5a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="66" y="0" width="122" height="25" uuid="6fd7df6e-d085-4da0-8d01-844091257e10"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diagnosis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="189" y="0" width="182" height="25" uuid="c9a27df0-842a-423f-8b60-99fa874d3ac2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{syptoms}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="373" y="-3" width="1" height="28" uuid="824c629b-0aab-4ae5-bb94-0f9eec20623b"/>
+			</line>
+			<textField>
+				<reportElement x="374" y="0" width="134" height="25" uuid="92e854a1-cdb1-4249-97da-a23a08087bbe"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{medicine_vaccine_given}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

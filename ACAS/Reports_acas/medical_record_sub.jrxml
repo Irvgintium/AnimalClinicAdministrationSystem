@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="medical_record_sub" language="groovy" pageWidth="572" pageHeight="752" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="ca8a9132-894c-4c04-955b-5cd63ffd65bb">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="pet_id" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT CONCAT_WS (" ",checkup_history.day, checkup_history.month, checkup_history.year) as `date`, `diagnosis`, `syptoms`, `medicine_vaccine_given` FROM `checkup_history`]]>
+	</queryString>
+	<field name="date" class="java.lang.String"/>
+	<field name="diagnosis" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="syptoms" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="medicine_vaccine_given" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="18" splitType="Stretch">
+			<line>
+				<reportElement x="189" y="-1" width="1" height="18" uuid="40309c9f-bdb3-4d1a-a8e0-6492ebf30ec4"/>
+			</line>
+			<line>
+				<reportElement x="509" y="-1" width="1" height="19" uuid="ac7a643d-f9a1-4832-bb76-70587bde7841"/>
+			</line>
+			<line>
+				<reportElement x="0" y="-1" width="1" height="18" uuid="688c29ff-9ca8-4d45-b3c0-185bfd51a9fc"/>
+			</line>
+			<line>
+				<reportElement x="66" y="-1" width="1" height="18" uuid="06e7b2e7-a9b9-428d-b3ae-2328c80bde00"/>
+			</line>
+			<line>
+				<reportElement x="0" y="-1" width="510" height="1" uuid="c54b4885-448f-4d4a-83e7-f2af941e34c1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="17" width="510" height="1" uuid="4c41556c-39f1-49b2-9c13-978041c4c91c"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="0" width="66" height="17" uuid="9f5b6965-490b-4cc3-82e8-5f4318890252"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="67" y="0" width="122" height="17" uuid="431f2c67-d3d1-42dc-8c55-2596e4a4cdc4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diagnosis}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>

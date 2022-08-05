@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="medical_record" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f4744fe4-3422-4b02-930b-2600d7390ab6">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="owner_id" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\MothaFuckIrv\\Documents\\Reports_acas\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pet_id" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select CONCAT_WS (" ",owner.street_name, owner.purok, owner.brgy_name, owner.city) AS `address`, CONCAT_WS (" ", owner.title_name, owner.first_name, owner.middle_name, owner.last_name, owner.suffix_name) as `full name`, pet.name, pet.breed, CONCAT_WS (" / ", pet.b_day, pet.b_month, pet.b_year, pet.age) as `bdateAge`, CONCAT_WS (" ", owner.contact_number_1, owner.contact_number_2) as `contactNo`, pet.color from owner INNER JOIN pet ON owner.owner_id = pet.owner_id WHERE owner.owner_id = $P{owner_id}]]>
+	</queryString>
+	<field name="address" class="java.lang.String"/>
+	<field name="full name" class="java.lang.String"/>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="breed" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bdateAge" class="java.lang.String"/>
+	<field name="contactNo" class="java.lang.String"/>
+	<field name="color" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="379" splitType="Stretch">
+			<staticText>
+				<reportElement x="25" y="123" width="58" height="13" uuid="d05e0ea3-e12b-42e4-bed7-35651b098c94"/>
+				<text><![CDATA[Contact No:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="425" y="151" width="107" height="1" uuid="545ac9fe-cf6f-40d0-b07f-633ae6d7da98"/>
+			</line>
+			<line>
+				<reportElement x="386" y="122" width="146" height="1" uuid="3776bce0-98b1-415c-b9bd-1f53da223436"/>
+			</line>
+			<staticText>
+				<reportElement x="350" y="124" width="75" height="13" uuid="c9e99565-25c6-461d-bb8e-273adfb56f33"/>
+				<text><![CDATA[Birthdate/Age:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="95" width="79" height="13" uuid="676c1b95-8009-433c-ad95-622ce1748eb7"/>
+				<text><![CDATA[Name of Owner:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="225" y="44" width="106" height="20" uuid="44968e40-326e-4277-9115-94ba03907865"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[MEDICAL RECORD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="109" width="43" height="13" uuid="887241c8-37c2-4c3c-b352-386c268cef72"/>
+				<text><![CDATA[Address:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="68" y="122" width="282" height="1" uuid="a3e9c27c-149d-48c7-9293-941670914684"/>
+			</line>
+			<staticText>
+				<reportElement x="350" y="138" width="75" height="13" uuid="7a8750c9-87ce-475a-b1ee-bb80f634fa9e"/>
+				<text><![CDATA[Color/Markings:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="425" y="137" width="107" height="1" uuid="565da4d9-2177-45d5-a8ec-074691092e5e"/>
+			</line>
+			<staticText>
+				<reportElement x="350" y="95" width="64" height="13" uuid="61c19096-1b4e-4846-8785-6bbb97a76924"/>
+				<text><![CDATA[Name of Pet:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="7" width="517" height="26" uuid="f9a7957c-0497-4eed-b5cb-673f9e9c5500"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="18"/>
+				</textElement>
+				<text><![CDATA[DADIANGAS HEIGHTS VETERINARY CLINIC]]></text>
+			</staticText>
+			<line>
+				<reportElement x="104" y="108" width="246" height="1" uuid="3467a423-918b-47ae-b782-1dac5629c464"/>
+			</line>
+			<line>
+				<reportElement x="414" y="107" width="118" height="1" uuid="b634b6a0-c81a-41f0-82d2-d2574972df46"/>
+			</line>
+			<staticText>
+				<reportElement x="350" y="110" width="36" height="13" uuid="495a2c75-450a-461d-8232-402961452e54"/>
+				<text><![CDATA[Breed:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="83" y="136" width="267" height="1" uuid="532b5671-1d2d-4573-891f-5cc1026f5134"/>
+			</line>
+			<textField>
+				<reportElement x="104" y="97" width="246" height="20" uuid="8919ac79-6009-4eb4-b56d-eb9776ac6c3c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{full name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="414" y="96" width="118" height="20" uuid="cdd1c4a4-f2ba-402f-935d-0449978ed2b9"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="386" y="110" width="146" height="20" uuid="198517be-0139-48e6-b933-9c60dc7f2955"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{breed}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="425" y="126" width="107" height="20" uuid="6e78a777-9b9f-4ab0-84bd-e0d196f5a7a4"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{bdateAge}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="425" y="140" width="107" height="20" uuid="b1f1d5bd-b7b3-46ad-a364-176fb3c85c1c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{color}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="68" y="110" width="282" height="20" uuid="2760b03a-9821-41b3-918e-4c0ea7151257"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="83" y="124" width="267" height="20" uuid="fa6b8efa-8def-4252-9bb2-28928ab09380"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{contactNo}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="212" y="165" width="1" height="11" uuid="71cbfac6-d136-47d6-98e7-7ef9dff00b3b"/>
+			</line>
+			<line>
+				<reportElement x="532" y="165" width="1" height="11" uuid="00d163af-e644-4146-a9e5-5dd404a40ced"/>
+			</line>
+			<line>
+				<reportElement x="23" y="164" width="510" height="1" uuid="029fa295-bb76-448a-b215-46c0174445ef"/>
+			</line>
+			<line>
+				<reportElement x="89" y="165" width="1" height="11" uuid="4dfa12a9-8728-48c0-b16b-a3940e561e7a"/>
+			</line>
+			<line>
+				<reportElement x="23" y="165" width="1" height="11" uuid="2687076a-f067-4792-bf8b-5463bdaad8eb"/>
+			</line>
+			<staticText>
+				<reportElement x="25" y="165" width="64" height="20" uuid="427e474c-7810-4e04-a5cc-033863a49d19"/>
+				<textElement textAlignment="Center">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="90" y="165" width="122" height="20" uuid="946ff3f1-8c4d-4da7-9017-1a742cb0c3d6"/>
+				<textElement textAlignment="Center">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Diagnosis]]></text>
+			</staticText>
+			<line>
+				<reportElement x="397" y="165" width="1" height="11" uuid="6e043526-61ff-4211-9f4f-1a352c085fd9"/>
+			</line>
+			<staticText>
+				<reportElement x="213" y="165" width="184" height="20" uuid="072a57aa-ed0f-42bc-937f-a3f6bced4ff6"/>
+				<textElement textAlignment="Center">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Symptoms]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="398" y="165" width="134" height="20" uuid="7b034557-3708-4269-8911-119973826157"/>
+				<textElement textAlignment="Center">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Given Vaccinne/Medicine]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="24" y="177" width="510" height="179" uuid="d1c8e6d0-b4fd-429a-95b0-2011201ced36"/>
+				<subreportParameter name="pet_id">
+					<subreportParameterExpression><![CDATA[$P{pet_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["C:\\Users\\Irvin Guinto\\Documents\\NetBeansProjects\\ACAS\\Reports_acas\\medical_record_2.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement x="23" y="176" width="510" height="1" uuid="1c9f8b97-1735-4fca-9bb0-493e1ec07fe5"/>
+			</line>
+		</band>
+	</title>
+</jasperReport>
