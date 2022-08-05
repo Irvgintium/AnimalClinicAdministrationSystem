@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="medical_records" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a9e54813-5133-4ef7-bf94-47272ea39816">
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="owner_id" class="java.lang.String"/>
+	<parameter name="pet_id" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["/home/irv/Documents/ACAS Reports/ACAS EMR REPORTS/"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select CONCAT_WS (" ",owner.street_name, owner.purok, owner.brgy_name, owner.city) AS `address`, CONCAT_WS (" ", owner.title_name, owner.first_name, owner.middle_name, owner.last_name, owner.suffix_name) as `full name`, pet.name, pet.breed, CONCAT_WS (" / ", pet.b_day, pet.b_month, pet.b_year, pet.age) as `bdateAge`, CONCAT_WS (" ", owner.contact_number_1, owner.contact_number_2) as `contactNo`, pet.color from owner INNER JOIN pet ON owner.owner_id = pet.owner_id where owner.owner_id = $P{owner_id} and pet.pet_id = $P{pet_id}]]>
+	</queryString>
+	<field name="address" class="java.lang.String"/>
+	<field name="full name" class="java.lang.String"/>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="breed" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bdateAge" class="java.lang.String"/>
+	<field name="contactNo" class="java.lang.String"/>
+	<field name="color" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="118" splitType="Stretch">
+			<textField>
+				<reportElement x="411" y="59" width="118" height="20" uuid="27ff093c-7cce-40cf-af05-f1dcff50c0ad"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="87" width="79" height="13" uuid="27778fdd-0e52-421d-82bf-36961f11aafd"/>
+				<text><![CDATA[Contact No:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="101" y="60" width="246" height="20" uuid="35aa1e17-cc88-4b61-8650-34cdcb8e273c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{full name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="73" width="58" height="13" uuid="e35a7695-dbd3-4825-94e3-c7493a61942c"/>
+				<text><![CDATA[Address:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="422" y="89" width="107" height="20" uuid="685cbb3f-f645-4f6f-829e-30bc074d1b98"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{bdateAge}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="59" width="93" height="13" uuid="922fc1cc-9427-4be0-b100-147c50812060"/>
+				<text><![CDATA[Name of Owner:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="422" y="101" width="107" height="1" uuid="6470dde5-65fd-44d2-befc-0c6c0cb09395"/>
+			</line>
+			<staticText>
+				<reportElement x="347" y="59" width="75" height="13" uuid="6ac8bacf-bdbf-4553-8de5-5167d164e819"/>
+				<text><![CDATA[Name of Pet:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="383" y="86" width="146" height="1" uuid="21a1fafa-bb5c-410f-b164-b3b15de97070"/>
+			</line>
+			<line>
+				<reportElement x="411" y="71" width="118" height="1" uuid="6de27338-1f35-4677-bdff-d424a6405adb"/>
+			</line>
+			<textField>
+				<reportElement x="70" y="76" width="282" height="13" uuid="873ce401-c438-4632-b6f6-01c9159bb7ec"/>
+				<textElement>
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="347" y="74" width="36" height="13" uuid="99e6e7c6-a02b-41bf-9240-360694b50c36"/>
+				<text><![CDATA[Breed:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="347" y="88" width="75" height="13" uuid="2ad13d96-6478-49d0-a346-8e551bc385ba"/>
+				<text><![CDATA[Birthdate/Age:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="347" y="102" width="89" height="13" uuid="ad2303cb-6f31-47c5-999c-492369d85002"/>
+				<text><![CDATA[Color/Markings:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="383" y="73" width="146" height="20" uuid="832c2c26-fb77-4bcd-81ad-a794bfce1455"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{breed}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="65" y="86" width="282" height="1" uuid="19eeb05f-46ca-4260-9123-5c42b3547dcc"/>
+			</line>
+			<line>
+				<reportElement x="422" y="115" width="107" height="1" uuid="00257745-6772-4486-8b7d-5f7fa195f85a"/>
+			</line>
+			<line>
+				<reportElement x="80" y="100" width="267" height="1" uuid="d645bc42-b43c-44c8-9693-a74f4bc82c7e"/>
+			</line>
+			<line>
+				<reportElement x="101" y="72" width="246" height="1" uuid="6ebf9b94-7a3d-4a00-a65d-65243f90fc48"/>
+			</line>
+			<textField>
+				<reportElement x="80" y="87" width="267" height="20" uuid="51fb6dc8-b7aa-4cd8-8d4e-93c3bcf98a7e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{contactNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="0" width="507" height="26" uuid="1f0c7713-5158-47b3-9f84-f20c3a7c9242"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="18"/>
+				</textElement>
+				<text><![CDATA[DADIANGAS HEIGHTS VETERINARY CLINIC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="197" y="32" width="150" height="14" uuid="b6218db4-8003-4796-acbf-5aab69031e37"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[MEDICAL RECORDS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="429" y="104" width="100" height="13" uuid="608f40ff-a7b1-4c3e-bb4e-352a9eb936c9"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{color}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="375" splitType="Stretch">
+			<subreport>
+				<reportElement x="-1" y="25" width="531" height="259" uuid="015b4c2a-d2c6-423d-a9dc-c933300cf78d"/>
+				<subreportParameter name="pet_id">
+					<subreportParameterExpression><![CDATA[$P{pet_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "medical_record_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement x="-1" y="6" width="556" height="1" uuid="72eebf19-3aa0-4ef4-9bc8-b7debbd7c1cd"/>
+			</line>
+			<line>
+				<reportElement x="-1" y="6" width="1" height="19" uuid="c6b8d5ba-b5ea-4b47-8906-ea6bd6a758e8"/>
+			</line>
+			<line>
+				<reportElement x="554" y="6" width="1" height="19" uuid="77b743bb-5266-4fe6-bf57-883bcfc38f96"/>
+			</line>
+			<line>
+				<reportElement x="99" y="6" width="1" height="19" uuid="3547c64f-b231-4483-99ad-080c3138b2da"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="10" width="100" height="18" uuid="6790f972-7149-4841-9409-19c1fae8143c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[DATE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="101" y="10" width="453" height="18" uuid="eabecc54-56fc-424b-a369-78438d108bcd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[REMARKS]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="4" width="80" height="20" uuid="9b7c4571-aecf-4daf-bb04-d18e5f147b23"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="81" y="4" width="40" height="20" uuid="f17b69d8-9260-4fd6-b5b0-4ee1d838bdb0"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

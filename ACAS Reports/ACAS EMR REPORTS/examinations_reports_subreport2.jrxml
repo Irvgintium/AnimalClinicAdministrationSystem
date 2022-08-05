@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="examinations_reports_subreport2" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="0051e755-d673-4525-8d72-03ac60bd83ce">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="exam_number" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT *, CONCAT_WS('','(',diagnosis_p2,'):') AS `DIAGP2`, CONCAT_WS('','(',prognosis_p2,'):') AS `PROGP2`, CONCAT_WS('','Php ',	amount_paid) AS `AMOUNTPAID` FROM `laboratory_exam`where exam_number = $P{exam_number}]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="exam_number" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pet_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="stool" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cpv" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="heartworm" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="diagnosis" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="diagnosis_p2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="blood" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ehr" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="others" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="prognosis" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="prognosis_p2" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vscraping" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vsmearing" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="medicine_given" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="prescription" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="attending_vet" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="amount_paid" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="day" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="month" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="year" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DIAGP2" class="java.lang.String"/>
+	<field name="PROGP2" class="java.lang.String"/>
+	<field name="AMOUNTPAID" class="java.lang.String"/>
+	<detail>
+		<band height="220" splitType="Stretch">
+			<staticText>
+				<reportElement x="25" y="27" width="100" height="13" uuid="948601d9-cd18-4e3e-a775-5a01d1466570"/>
+				<text><![CDATA[STOOL:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="66" y="29" width="100" height="10" uuid="b7d7bd42-2ba2-45c1-8d39-1ee578587c7b"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stool}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="26" y="40" width="100" height="12" uuid="63f10b04-6a07-4f1f-adc8-f978d6743b5c"/>
+				<text><![CDATA[CPV/CDV:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="78" y="42" width="100" height="12" uuid="ba3022de-dd40-4427-a7ba-fbe87a4742d6"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cpv}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="25" y="12" width="153" height="20" uuid="f993c33b-5816-4aea-afd8-1befabcec9af"/>
+				<text><![CDATA[LABORATORY EXAMINATIONS:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="65" y="38" width="113" height="1" uuid="2871e545-a70e-49ea-8a5c-0ea6860845f1"/>
+			</line>
+			<line>
+				<reportElement x="76" y="51" width="102" height="1" uuid="373b47d0-0cb8-48c9-962b-9f72b2e38b03"/>
+			</line>
+			<staticText>
+				<reportElement x="26" y="53" width="100" height="22" uuid="d232c821-50ae-4b1a-8fda-bcbfe5debb21"/>
+				<text><![CDATA[HEARTWORM:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="55" width="78" height="10" uuid="030829f9-566a-448c-85ed-430f9f82db9d"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{heartworm}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="100" y="64" width="78" height="1" uuid="67f25cff-5b37-4768-9311-557cd1ed9dd5"/>
+			</line>
+			<staticText>
+				<reportElement x="26" y="65" width="100" height="20" uuid="7f117182-9901-41b9-b5fb-10b7f74a3dfd"/>
+				<text><![CDATA[DIAGNOSIS:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="88" y="67" width="78" height="10" uuid="6ee33e19-7186-4859-9c80-ae11eab19ae4"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DIAGP2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="151" y="67" width="378" height="10" uuid="48490058-41a9-415f-85fc-864c475b6bcc"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diagnosis}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="151" y="77" width="378" height="1" uuid="227df055-619c-4cc6-81bc-ab1af7493f2b"/>
+			</line>
+			<staticText>
+				<reportElement x="26" y="78" width="100" height="18" uuid="8f3fe184-5fcc-4402-a78b-61e1db792032"/>
+				<text><![CDATA[PROGNOSIS:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="90" y="80" width="100" height="18" uuid="5fd298fe-5ffb-4ee9-a894-6f447af2526e"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PROGP2}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="151" y="89" width="378" height="1" uuid="bd34ae15-d2c7-4759-9eab-3ce834f906bc"/>
+			</line>
+			<textField>
+				<reportElement x="156" y="80" width="374" height="11" uuid="9a840ed7-a951-4002-8d29-91cbc3b3caa2"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prognosis}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="26" y="98" width="100" height="20" uuid="6ceee79f-d199-4c30-9453-b765d23e3679"/>
+				<text><![CDATA[MEDICINE GIVEN:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="26" y="113" width="140" height="42" uuid="91d3b99c-11ff-4fd6-861d-8163fdafa467"/>
+				<textElement>
+					<font size="8" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{medicine_given}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="27" y="148" width="100" height="13" uuid="985f99bb-607f-4fa0-8e54-2a23af82beff"/>
+				<text><![CDATA[ATTENDING VET:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="116" y="150" width="100" height="12" uuid="5a3d7035-9ab9-4d6f-b5dc-829d29f77ea4"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{attending_vet}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="114" y="160" width="127" height="1" uuid="3c50039e-ca2e-44dd-9656-508a53b97b9a"/>
+			</line>
+			<staticText>
+				<reportElement x="210" y="27" width="43" height="20" uuid="8534c4db-fc64-4a89-9819-c1d39edd004e"/>
+				<text><![CDATA[BLOOD:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="253" y="28" width="100" height="11" uuid="1bc29a98-406c-4ccf-8041-d1998f8d4732"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{blood}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="252" y="38" width="100" height="1" uuid="394b08e5-d45f-4246-b0f6-1b05d21afe7f"/>
+			</line>
+			<staticText>
+				<reportElement x="210" y="40" width="100" height="15" uuid="6a1991b4-a18d-4cc9-a489-b28f42e79f73"/>
+				<text><![CDATA[EHRLICHIA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="270" y="41" width="83" height="11" uuid="b8f7cc4b-70e3-426b-8fe2-3f746df6308c"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ehr}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="270" y="50" width="82" height="1" uuid="4e3380f8-6149-442b-9ade-c92f0df91df7"/>
+			</line>
+			<staticText>
+				<reportElement x="210" y="52" width="100" height="17" uuid="8a3c3adb-a7e5-4ba9-872f-c591bf414b84"/>
+				<text><![CDATA[Others:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="253" y="53" width="276" height="13" uuid="7d2ce697-951a-4c6e-b233-fdaf61a8ffed"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{others}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="251" y="62" width="278" height="1" uuid="4118773d-8203-4de3-b4aa-f095e7cd8eb5"/>
+			</line>
+			<staticText>
+				<reportElement x="377" y="27" width="73" height="12" uuid="1d1753b5-9b49-4870-816b-452de137e456"/>
+				<text><![CDATA[V. SCRAPING:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="450" y="27" width="79" height="11" uuid="917a0c90-0ad4-4fca-aebc-85d44abe7f9e"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vscraping}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="450" y="37" width="79" height="1" uuid="69459908-955a-45ad-a724-955abb014ad0"/>
+			</line>
+			<staticText>
+				<reportElement x="376" y="41" width="100" height="13" uuid="68c9940a-5965-4528-928c-188def20a813"/>
+				<text><![CDATA[V. SMEARING:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="450" y="42" width="80" height="12" uuid="c17508f0-7738-4b80-9919-bf97f3f12c07"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vsmearing}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="450" y="52" width="79" height="1" uuid="ed33cb21-0245-4521-97e3-92010865f99e"/>
+			</line>
+			<staticText>
+				<reportElement x="270" y="96" width="100" height="20" uuid="ad57224e-9a21-49ad-96d2-11ef8bea19e7"/>
+				<text><![CDATA[PRESCRIPTION:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="270" y="113" width="259" height="37" uuid="4e842367-7fdb-4522-9c26-7dce1cd644ac"/>
+				<textElement>
+					<font size="8" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prescription}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="150" width="82" height="20" uuid="10a38734-f8ca-4cb3-9ba1-2a13491e226c"/>
+				<text><![CDATA[AMOUNT PAID:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="348" y="160" width="177" height="1" uuid="f07d72b3-d245-4adc-ab5f-f45280a52b33"/>
+			</line>
+			<textField>
+				<reportElement x="350" y="150" width="100" height="13" uuid="6ac96617-0ff5-4d9a-be7b-6b95226e6e5d"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AMOUNTPAID}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

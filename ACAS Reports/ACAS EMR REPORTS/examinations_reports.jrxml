@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="examinations_reports" language="groovy" pageWidth="595" pageHeight="936" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="980fb221-6df2-47a6-bae6-123a9400a624">
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="pet_id" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["/home/irv/Documents/ACAS Reports/ACAS EMR REPORTS/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="exam_number" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select distinct exam_number FROM physical_exam where exam_number = $P{exam_number} and pet_id = $P{pet_id}]]>
+	</queryString>
+	<field name="exam_number" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<detail>
+		<band height="720" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="466" uuid="a42d85d3-85b1-4b6b-b98a-a1caa1f4e9dd"/>
+				<subreportParameter name="pet_id">
+					<subreportParameterExpression><![CDATA[$P{pet_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="exam_number">
+					<subreportParameterExpression><![CDATA[$P{exam_number}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "examinations_reports_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="0" y="544" width="555" height="176" uuid="a11871ff-73d5-4065-b5b3-db2713b24a0d"/>
+				<subreportParameter name="exam_number">
+					<subreportParameterExpression><![CDATA[$P{exam_number}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "examinations_reports_subreport2.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="80" height="20" uuid="c294cf9f-9d2a-49a6-a27c-a643c31afbf3"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="80" y="0" width="40" height="20" uuid="7ea27fa1-fcae-411b-81fa-c19546e0d5ee"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

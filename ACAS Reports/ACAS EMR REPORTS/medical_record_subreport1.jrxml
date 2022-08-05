@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="medical_record_subreport1" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="56aa18d1-f845-4225-be43-017698148806">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="111"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="pet_id" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT remarks, CONCAT_WS(' ',day, month, year) AS `Date` FROM `medical_history` where pet_id = $P{pet_id}]]>
+	</queryString>
+	<field name="remarks" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Date" class="java.lang.String"/>
+	<group name="Date">
+		<groupExpression><![CDATA[$F{Date}]]></groupExpression>
+	</group>
+	<detail>
+		<band height="74" splitType="Stretch">
+			<textField>
+				<reportElement x="6" y="4" width="89" height="56" uuid="8568e72f-2283-49b6-b0b7-4914fcfa60a7"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="4" width="444" height="69" uuid="f83b2eca-f163-4e95-bec5-a072b014b070"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{remarks}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="100" y="0" width="1" height="74" uuid="cd7d41bd-f5eb-4065-b77b-8eff7f63bf3d"/>
+			</line>
+			<line>
+				<reportElement x="0" y="73" width="555" height="1" uuid="6da15d15-61c2-4a23-b949-6abc15b42299"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="1" height="74" uuid="c88acb17-440f-418a-9fff-c4c63b6b1dde"/>
+			</line>
+			<line>
+				<reportElement x="555" y="-1" width="1" height="75" uuid="06e6b8e6-51ed-48b5-bbe8-d1b12b84fe1f"/>
+			</line>
+			<line>
+				<reportElement x="0" y="-1" width="556" height="1" uuid="f2760021-1c74-4981-9b56-5ddede650e95"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>
